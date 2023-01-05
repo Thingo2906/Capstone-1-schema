@@ -45,11 +45,11 @@ with app.app_context():
 
 
 # Add posts
-    post1 = Post(user_id=1, title="The Best Vegetables to Eat When You're Trying to Lose Weight",
+    post1 = Post(user_id=user1.id, title="The Best Vegetables to Eat When You're Trying to Lose Weight",
            content = "Here are seven vegetables that are particularly helpful for weight loss: Spinach, Broccoli, Spaghetti squash, Brussels sprouts, Green peas, Cauliflower, Sweet potato.",
             image_url = "https://www.deaconess.com/getattachment/91644d96-0005-4a94-88e2-b312efc1fe7f/Eat-Your-Veggies!")
-    post2 = Post(user_id=2, title='How does fat leave your body?', content = "The triglycerides release fat as carbon dioxide and water atoms during fat metabolism or oxidation. In other words, fat leaves the body as carbon dioxide when you exhale. The fat which becomes water mixes into your circulation until it's lost as urine, tears, sweat and other bodily fluids.")
-    post3 = Post(user_id=3, title='Food is my life', content = "I Love to cook everyday")
+    post2 = Post(user_id=user2.id, title='How does fat leave your body?', content = "The triglycerides release fat as carbon dioxide and water atoms during fat metabolism or oxidation. In other words, fat leaves the body as carbon dioxide when you exhale. The fat which becomes water mixes into your circulation until it's lost as urine, tears, sweat and other bodily fluids.")
+    post3 = Post(user_id=user3.id, title='Food is my life', content = "I Love to cook everyday")
 
 # Add new objects to session, so they'll persist
     db.session.add_all([user1, user2, user3])
