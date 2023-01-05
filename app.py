@@ -1,4 +1,4 @@
-
+import os
 from flask import Flask, render_template, request, flash, redirect, session, g, abort
 from flask_debugtoolbar import DebugToolbarExtension
 from sqlalchemy.exc import IntegrityError
@@ -13,6 +13,9 @@ app = Flask(__name__)
 
 # Get DB_URI from environ variable (useful for production/testing) or,
 # if not set there, use development local db.
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'itisasecret')
+print(app.config['SECRET_KEY'])
+print("####################")
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///healthy_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']  =  False
 app.config['SQLALCHEMY_ECHO'] =  True
