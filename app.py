@@ -21,9 +21,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS']  =  False
 app.config['SQLALCHEMY_ECHO'] =  True
 app.config['SECRET_KEY'] = "chickenzarecool21837"
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
-debug = DebugToolbarExtension(app)
+
 
 connect_db(app)
+debug = DebugToolbarExtension(app)
 db.create_all()
 
 ##############################################################################
