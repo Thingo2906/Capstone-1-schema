@@ -6,8 +6,7 @@ import requests
 
 from forms import UserRegisterForm, LoginForm, UserEditForm, PostForm, BMIForm, CaloriesRequirement, SearchFoodForm
 from models import db, connect_db, User, UserBMI, Post
-from config import API_KEY_1, API_KEY_2
-
+import config
 CURR_USER_KEY = "curr_user"
 
 app = Flask(__name__)
@@ -60,7 +59,7 @@ def get_bmi(age, weight, height):
     querystring = {"age":f"{age}","weight":f"{weight}","height":f"{height}"}
 
     headers = {
-	"X-RapidAPI-Key": API_KEY_1,
+	"X-RapidAPI-Key": config.API_KEY_1,
 	"X-RapidAPI-Host": "fitness-calculator.p.rapidapi.com"
     }
 
@@ -78,7 +77,7 @@ def get_calories(age, gender, height, weight, activitylevel):
     querystring = {"age": f"{age}","gender":f"{gender}","height":f"{height}","weight":f"{weight}","activitylevel":f"{activitylevel}"}
 
     headers = {
-	"X-RapidAPI-Key": API_KEY_1,
+	"X-RapidAPI-Key": config.API_KEY_1,
 	"X-RapidAPI-Host": "fitness-calculator.p.rapidapi.com"
     }
 
@@ -129,7 +128,7 @@ def search_recipe(tag):
     API_URL ="https://api.spoonacular.com/recipes/random?"  
 
     url = f"{API_URL}number=1&tag={tag}"
-    header = {"x-api-key" : API_KEY_2}
+    header = {"x-api-key" : config.API_KEY_2}
     response = requests.request("GET", url, headers=header)
     data = response.json()
     title = data['recipes'][0]['title']

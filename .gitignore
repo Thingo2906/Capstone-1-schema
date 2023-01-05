@@ -1,4 +1,4 @@
 config.py
 config.js
 venv/
-__pycache__/
+__pycache__
